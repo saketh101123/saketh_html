@@ -1,0 +1,51 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative px-2 py-1 text-foreground/80 hover:text-foreground transition-colors;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute left-0 -bottom-0.5 h-0.5 w-0 bg-primary 
+           transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-white rounded-lg shadow-lg 
+           hover:bg-primary/90 transition-all duration-300 
+           transform hover:-translate-y-0.5;
+  }
+
+  .stats-card {
+    @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-xl 
+           transition-shadow duration-300;
+  }
+}
